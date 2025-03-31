@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Your Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            color: black;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('sdgimg.jpg') no-repeat center center/cover;
+            padding: 50px 20px;
+        }
+
+        .confirmation-box {
+            width: 90%;
+            max-width: 500px;
+            background: transparent;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .details {
+            text-align: left;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .details p {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            width: 48%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .edit-btn {
+            background: linear-gradient(135deg, #d9534f, #c9302c);
+            color: white;
+        }
+
+        .edit-btn:hover {
+            background: linear-gradient(135deg, #c9302c, #a52a2a);
+            transform: scale(1.05);
+        }
+
+        .confirm-btn {
+            background: linear-gradient(135deg, black, #333);
+            color: white;
+        }
+
+        .confirm-btn:hover {
+            background: linear-gradient(135deg, #333, #555);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 480px) {
+            .confirmation-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-box">
+        <h1>Confirm Your Details</h1>
+        <div class="details">
+            <p>📦 Selected Package: <span id="selectedPackage">Loading...</span></p>
+            <p>👤 Name: <span id="userName">Loading...</span></p>
+            <p>📞 Phone: <span id="userPhone">Loading...</span></p>
+            <p>📍 Address: <span id="userAddress">Loading...</span></p>
+        </div>
+        <div class="btn-container">
+            <button class="btn edit-btn" onclick="editDetails()">Edit</button>
+            <button class="btn confirm-btn" onclick="confirmDetails()">Confirm</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Load details from sessionStorage
+            document.getElementById("selectedPackage").innerText = sessionStorage.getItem("selectedPackage") || "Not selected";
+            document.getElementById("userName").innerText = sessionStorage.getItem("userName") || "Not provided";
+            document.getElementById("userPhone").innerText = sessionStorage.getItem("userPhone") || "Not provided";
+            document.getElementById("userAddress").innerText = sessionStorage.getItem("userAddress") || "Not provided";
+        });
+
+        function editDetails() {
+            window.location.href = "address.html"; // Redirect back to address input
+        }
+
+        function confirmDetails() {
+            alert("Details confirmed! Proceeding to final submission...");
+            window.location.href = "success.html"; // Redirect to success page
+        }
+    </script>
+</body>
+</html>

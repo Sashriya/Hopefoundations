@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Hope Foundation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            color: black; /* Set all text to black */
+        }
+
+        body {
+            background: url('sdgimg.jpg') center/cover no-repeat;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            min-height: 50vh;
+            color: white; /* Keep header text white for contrast */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            background: transparent;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: auto;
+            margin-top: -50px;
+            text-align: center;
+            position: relative;
+            margin-bottom: 50px;
+            border: 1px solid rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-container h2, 
+        .contact-container p, 
+        .contact-option {
+            color: black; /* Ensure text inside contact section is black */
+        }
+
+        .contact-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #f9f9f9;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            transition: 0.3s;
+            text-decoration: none;
+            color: black; /* Set contact option text to black */
+            font-size: 18px;
+        }
+
+        .contact-option:hover {
+            background: #007bff;
+            color: white;
+        }
+
+        .contact-option i {
+            font-size: 24px;
+        }
+
+        /* Go Home Button */
+        .go-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #28a745;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .go-home:hover {
+            background: #218838;
+        }
+
+        /* Footer */
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <section class="header">
+        <h1>Contact Us</h1>
+        <h4>We'd love to hear from you!</h4>
+    </section>
+
+    <!-- Contact Section -->
+    <div class="contact-container">
+        <h2>Get in Touch</h2>
+        <p>Reach out to us via phone, email, or social media.</p>
+
+        <a href="tel:+9324932985" class="contact-option">
+            <i class="fas fa-phone"></i> Call Us: +91 3241-932-985
+        </a>
+
+        <a href="mailto:info@hopefoundation.org" class="contact-option">
+            <i class="fas fa-envelope"></i> Email: info@hopefoundation.org
+        </a>
+
+        <a href="https://www.instagram.com/hopefoundation" class="contact-option" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram: @hopefoundation
+        </a>
+
+        <!-- Go Home Button -->
+        <a href="index.html" class="go-home"><i class="fas fa-arrow-left"></i> Go Home</a>
+    </div>
+
+</body>
+</html>

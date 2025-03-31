@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/poppins">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('sdgimg.jpg') no-repeat center center/cover;
+            padding-top: 50px;
+        }
+
+        .cover_box {
+            width: 100%;
+            max-width: 400px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.6s ease-in-out;
+            margin-bottom: 70px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 26px;
+            color: black;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .input-box {
+            position: relative;
+            width: 100%;
+            margin: 15px 0;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 12px 45px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.5);
+            color: black;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-box input::placeholder {
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        .input-box input:focus {
+            border-color: #333;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .input-box label {
+            position: absolute;
+            top: 50%;
+            left: 45px;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: black;
+            pointer-events: none;
+            transition: 0.3s;
+        }
+
+        .input-box input:focus ~ label,
+        .input-box input:valid ~ label {
+            top: 8px;
+            left: 45px;
+            font-size: 12px;
+            color: #333;
+        }
+
+        .input-box .icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: black;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 18px;
+            color: black;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: black;
+            margin: 10px 0;
+        }
+
+        .remember-forgot a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .remember-forgot a:hover {
+            text-decoration: underline;
+            color: #444;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            background: #333;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-register {
+            margin-top: 15px;
+            font-size: 14px;
+            color: black;
+        }
+
+        .login-register a {
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .login-register a:hover {
+            text-decoration: underline;
+            color: #444;
+        }
+
+        @media (max-width: 480px) {
+            .cover_box {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cover_box">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-user"></i></span>
+                <input type="text" id="username" required>
+                <label>Username</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-envelope"></i></span>
+                <input type="email" id="email" required>
+                <label>Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-lock"></i></span>
+                <input type="password" id="createPassword" required>
+                <span class="toggle-password"><i class="fas fa-eye-slash"></i></span>
+                <label>Create Password</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-lock"></i></span>
+                <input type="password" id="confirmPassword" required>
+                <span class="toggle-password"><i class="fas fa-eye-slash"></i></span>
+                <label>Confirm Password</label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox" id="terms"> I agree to Terms & Conditions</label>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <div class="login-register">
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("registerForm");
+            const createPassword = document.getElementById("createPassword");
+            const confirmPassword = document.getElementById("confirmPassword");
+            const terms = document.getElementById("terms");
+            const passwordToggles = document.querySelectorAll(".toggle-password i");
+    
+            // Toggle Password Visibility
+            passwordToggles.forEach((toggle) => {
+                toggle.addEventListener("click", function () {
+                    let inputField = this.parentElement.previousElementSibling;
+                    if (inputField.type === "password") {
+                        inputField.type = "text";
+                        this.classList.replace("fa-eye-slash", "fa-eye");
+                    } else {
+                        inputField.type = "password";
+                        this.classList.replace("fa-eye", "fa-eye-slash");
+                    }
+                });
+            });
+    
+            // Handle Registration
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+    
+                let username = document.getElementById("username").value.trim();
+                let email = document.getElementById("email").value.trim();
+                let password = createPassword.value.trim();
+                let confirmPasswordVal = confirmPassword.value.trim();
+    
+                if (!username || !email || !password || !confirmPasswordVal) {
+                    alert("Please fill in all fields!");
+                    return;
+                }
+    
+                if (password !== confirmPasswordVal) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+    
+                if (!terms.checked) {
+                    alert("You must agree to the terms and conditions.");
+                    return;
+                }
+    
+                // Fetch existing users from localStorage
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+    
+                // Check if user already exists
+                if (users.some(user => user.email === email)) {
+                    alert("User already exists! Please login.");
+                    return;
+                }
+    
+                // Save the new user
+                let newUser = { username, email, password };
+                users.push(newUser);
+                localStorage.setItem("users", JSON.stringify(users));
+    
+                alert("Registration Successful!");
+                window.location.href = "login.html"; // Redirect to login page
+            });
+        });
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Cloth Donation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: url('sdgimg.jpg') no-repeat center center/cover;
+            color: black;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+        }
+
+        h1, h2 {
+            color: #044f10;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .mission, .how-it-works, .team, .faq {
+            margin-top: 40px;
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .step {
+            width: 30%;
+            min-width: 250px;
+            padding: 15px;
+            background: rgba(4, 79, 16, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .step:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #044f10;
+        }
+
+        .faq-item {
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .faq-item summary {
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px;
+            background: rgba(4, 79, 16, 0.1);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .faq-item summary:hover {
+            background: rgba(4, 79, 16, 0.3);
+        }
+
+        .home-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #044f10, #028c30);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .home-btn:hover {
+            background: linear-gradient(135deg, #03340F, #026120);
+            transform: scale(1.05);
+        }
+
+        .home-btn:active {
+            transform: scale(0.98);
+        }
+
+        @media (max-width: 768px) {
+            .step {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About Our Cloth Donation Initiative</h1>
+        <p>Making a difference, one donation at a time. Join us in spreading warmth and kindness!</p>
+
+        <section class="mission">
+            <h2>Our Mission</h2>
+            <p>We believe in reducing waste and helping the needy by collecting and distributing gently used clothes to those who need them the most.</p>
+        </section>
+
+        <section class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <h3>1. Choose a Package</h3>
+                    <p>Select the package size that fits your donation.</p>
+                </div>
+                <div class="step">
+                    <h3>2. Schedule Pickup</h3>
+                    <p>Enter your address, and we’ll pick up the clothes.</p>
+                </div>
+                <div class="step">
+                    <h3>3. Clothes are Distributed</h3>
+                    <p>Your donated clothes go directly to those in need.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <details>
+                    <summary>What kind of clothes can I donate?</summary>
+                    <p>We accept clean, gently used clothing for all ages.</p>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Is there a fee for pickup?</summary>
+                    <p>No, our pickup service is completely free!</p>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>How do I know my clothes reached those in need?</summary>
+                    <p>We provide updates and success stories on our website and social media.</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- Go Home Button -->
+        <a href="index.html" class="home-btn">Go Home</a>
+    </div>
+</body>
+</html>

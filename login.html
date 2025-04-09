@@ -36,23 +36,70 @@
             animation: fadeIn 0.6s ease-in-out;
         }
 
-        @keyframes fadeIn {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        
+        .cover_box {
+            animation: bounceIn 0.8s ease-out;
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .input-box {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .input-box:nth-child(1) { animation-delay: 0.3s; }
+        .input-box:nth-child(2) { animation-delay: 0.5s; }
+        
+        .btn {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+            animation-delay: 0.8s;
+        }
+        
+        .btn:hover {
+            animation: pulse 0.6s ease-in-out infinite;
+        }
+        
 
         h2 {
             font-size: 26px;
             color: black;
             font-weight: bold;
             margin-bottom: 20px;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            animation-delay: 0.2s;
         }
+        
 
         .input-box {
             position: relative;
@@ -152,12 +199,15 @@
             font-weight: bold;
             transition: 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            opacity: 1; 
+            animation-delay: 1.3s;
+            animation: fadeInDelayed 0.6s ease forwards;
         }
 
         .btn:hover {
             background: #333;
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            opacity: 1;
         }
 
         .login-register {
@@ -204,9 +254,9 @@
             </div>
             <div class="remember-forgot">
                 <label><input type="checkbox"> Remember Me</label>
-                <a href="#">Forgot Password?</a>
+                <a href="forget.html">Forgot Password?</a>
             </div>
-            <button type="submit" class="btn">Login</button>
+            <button type="submit" class="btn" onclick="sendThankYouEmail()">Login</button>
             <div class="login-register">
                 <p>Don't have an account? <a href="register.html">Register</a></p>
             </div>
@@ -217,7 +267,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             const passwordInput = document.getElementById("password");
             const togglePassword = document.querySelector(".toggle-password i");
-    
+        
             // Toggle Password Visibility
             togglePassword.addEventListener("click", function () {
                 if (passwordInput.type === "password") {
@@ -228,41 +278,83 @@
                     togglePassword.classList.replace("fa-eye", "fa-eye-slash");
                 }
             });
-    
+        
             // Handle Login
             document.getElementById("loginForm").addEventListener("submit", function (event) {
                 event.preventDefault();
-    
+        
                 const email = document.getElementById("email").value.trim();
                 const password = document.getElementById("password").value.trim();
-    
+        
                 if (!email || !password) {
                     alert("Please enter your email and password.");
                     return;
                 }
-    
+        
                 // Retrieve stored users
                 let users = JSON.parse(localStorage.getItem("users")) || [];
-    
-                // Find user in the database
-                let foundUser = users.find(user => user.email === email && user.password === password);
-    
-                if (foundUser) {
-                    alert("Login Successful!");
-    
-                    // If the user is an admin (Example: checking a specific admin email)
-                    if (email === "admin@example.com") { 
-                        window.location.href = "admin.html"; // Redirect to admin page
-                    } else {
-                        window.location.href = "detail.html"; // Redirect to user details page
-                    }
-    
-                } else {
+        
+                // Check if the email exists in the database
+                let foundUser = users.find(user => user.email === email);
+        
+                if (!foundUser) {
                     alert("User not found! Please register first.");
                     window.location.href = "register.html"; // Redirect to registration page
+                    return;
+                }
+        
+                // Check if the password matches
+                if (foundUser.password !== password) {
+                    alert("Incorrect password! Please try again.");
+                    return;
+                }
+        
+                // Successful login
+                alert("Login Successful!");
+        
+                // Store user email in localStorage for future use (like sending emails)
+                localStorage.setItem("userEmail", email);
+                localStorage.setItem("userName", foundUser.name || "User");
+        
+                // Redirect based on user type
+                if (email === "admin@gmail.com") {
+                    window.location.href = "admin.html"; // Redirect to admin page
+                } else {
+                    window.location.href = "detail.html"; // Redirect to user details page
                 }
             });
+        
+            // Initialize EmailJS
+            emailjs.init("hopefoundations25@gmail.com"); // Replace with your EmailJS Public Key
         });
+        
+        function sendThankYouEmail() {
+            const email = localStorage.getItem("userEmail"); // Retrieve email from storage
+            const name = localStorage.getItem("userName") || "User";
+        
+            if (!email) {
+                alert("User email not found!");
+                return;
+            }
+        
+            let templateParams = {
+                to_email: email,
+                user_name: name
+            };
+        
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+                .then(response => {
+                    console.log("Email sent successfully!", response.status, response.text);
+                    alert("Thank you email sent!");
+                })
+                .catch(error => {
+                    console.error("Email sending failed:", error);
+                    alert("Failed to send email.");
+                });
+        
+            window.location.href = "detail.html"; // Redirect after sending email
+        }
+        
     </script>
     
 

@@ -1,121 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Package Confirmation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Package Confirmation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: url('sdgimg.jpg') no-repeat center center/cover;
-            padding: 50px 20px;
-            text-align: center;
-        }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: url('sdgimg.jpg') no-repeat center center/cover;
+      padding: 50px 20px;
+      text-align: center;
+      animation: fadeInBody 1s ease-in-out;
+    }
 
-        .container {
-            width: 90%;
-            max-width: 450px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 15px;
-            backdrop-filter: blur(12px);
-            padding: 25px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-        h1 {
-            color: #05190A;
-            font-size: 24px;
-            font-weight: 600;
-        }
+    .container {
+      width: 90%;
+      max-width: 450px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      backdrop-filter: blur(12px);
+      padding: 25px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      animation: zoomIn 0.8s ease-out;
+    }
 
-        p {
-            font-size: 18px;
-            color: #333;
-            margin: 15px 0;
-        }
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
 
-        .btn-group {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            margin-top: 20px;
-        }
+    h1 {
+      color: #05190A;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      animation: fadeInDown 1s ease;
+    }
 
-        .btn {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1em;
-            font-weight: bold;
-            cursor: pointer;
-            color: white;
-            transition: transform 0.2s ease;
-        }
+    @keyframes fadeInDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
 
-        .back-btn {
-            background: linear-gradient(135deg, #8b0000, #b22222);
-        }
+    p {
+      font-size: 18px;
+      color: #333;
+      margin: 15px 0;
+      animation: fadeInUp 1.2s ease;
+    }
 
-        .proceed-btn {
-            background: linear-gradient(135deg, #05190A, #044f10);
-        }
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
 
-        .btn:hover {
-            transform: scale(1.05);
-        }
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 20px;
+      animation: fadeInButtons 1.4s ease;
+    }
 
-        .btn:active {
-            transform: scale(0.98);
-        }
-    </style>
+    @keyframes fadeInButtons {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      color: white;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    .back-btn {
+      background: linear-gradient(135deg, #8b0000, #b22222);
+    }
+
+    .proceed-btn {
+      background: linear-gradient(135deg, #05190A, #044f10);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    @media (max-width: 480px) {
+      .btn-group {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Package Confirmed!</h1>
-        <p id="package-details">Loading...</p>
-        <div class="btn-group">
-            <button class="btn back-btn" onclick="goBack()">Go Back</button>
-            <button class="btn proceed-btn" onclick="nextStep()">Proceed</button>
-        </div>
+  <div class="container">
+    <h1>Package Confirmed!</h1>
+    <p id="package-details">Loading...</p>
+    <div class="btn-group">
+      <button class="btn back-btn" onclick="goBack()">Go Back</button>
+      <button class="btn proceed-btn" onclick="nextStep()">Proceed</button>
     </div>
+  </div>
 
-    <script>
-        // Fetch the package from sessionStorage
-        document.addEventListener("DOMContentLoaded", function () {
-            const selectedPackage = sessionStorage.getItem("selectedPackage");
-            const detailsElement = document.getElementById("package-details");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const selectedPackage = sessionStorage.getItem("selectedPackage");
+      const detailsElement = document.getElementById("package-details");
 
-            if (selectedPackage) {
-                detailsElement.textContent = `You have selected the ${selectedPackage.toUpperCase()} package.`;
-            } else {
-                detailsElement.textContent = "No package selected. Redirecting...";
-                setTimeout(() => window.location.href = "detail.html", 2000);
-            }
-        });
+      if (selectedPackage) {
+        detailsElement.textContent = `You have selected the ${selectedPackage.toUpperCase()} package.`;
+      } else {
+        detailsElement.textContent = "No package selected. Redirecting...";
+        setTimeout(() => window.location.href = "detail.html", 2000);
+      }
+    });
 
-        function goBack() {
-            window.location.href = "detail.html";
-        }
+    function goBack() {
+      window.location.href = "detail.html";
+    }
 
-        function nextStep() {
-            alert("Proceeding to the next step...");
-            // Redirect to the next process (e.g., address form)
-            window.location.href = "address.html";
-        }
-    </script>
+    function nextStep() {
+      alert("Proceeding to the next step...");
+      window.location.href = "address.html";
+    }
+  </script>
 </body>
 </html>

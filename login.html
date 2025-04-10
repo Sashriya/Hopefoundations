@@ -234,6 +234,25 @@
                 padding: 20px;
             }
         }
+        .go-home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: black;
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s ease;
+            z-index: 10;
+          }
+          
+          .go-home-btn:hover {
+            background-color: white;
+          }
     </style>
 </head>
 <body>
@@ -262,6 +281,10 @@
             </div>
         </form>
     </div>
+    <a href="index.html" class="go-home-btn">
+  <i class="fas fa-arrow-left"></i> Home
+</a>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {

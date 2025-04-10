@@ -1,181 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Package Confirmation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-   <link rel="icon" href="logo.jpg">
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/poppins">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: url('sdgimg.jpg') no-repeat center center/cover;
-      padding: 50px 20px;
-      text-align: center;
-      animation: fadeInBody 1s ease-in-out;
-    }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('sdgimg.jpg') no-repeat center center/cover;
+            padding-top: 50px;
+        }
 
-    @keyframes fadeInBody {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+        .cover_box {
+            width: 100%;
+            max-width: 400px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.6s ease-in-out;
+            margin-bottom: 70px;
+            animation: zoomFade 0.6s ease-in-out;
+        }
 
-    .container {
-      width: 90%;
-      max-width: 450px;
-      background: rgba(255, 255, 255, 0.2);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-radius: 15px;
-      backdrop-filter: blur(12px);
-      padding: 25px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      animation: zoomIn 0.8s ease-out;
-    }
+        @keyframes fadeInDelayed {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        
+        .input-box {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .input-box:nth-child(1) { animation-delay: 0.3s; }
+        .input-box:nth-child(2) { animation-delay: 0.5s; }
+        
+        .btn {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+            animation-delay: 0.8s;
+        }
+        
+        .btn:hover {
+            animation: pulse 0.6s ease-in-out infinite;
+        }
+        
 
-    @keyframes zoomIn {
-      from {
-        transform: scale(0.9);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
+        h2 {
+            font-size: 26px;
+            color: black;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: fadeInDelayed 0.6s ease forwards;
+            opacity: 0;
+            animation-delay: 0.2s;
+        }
+        
 
-    h1 {
-      color: #05190A;
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      animation: fadeInDown 1s ease;
-    }
+        .input-box {
+            animation: fadeInDelayed 0.6s ease forwards;
+            opacity: 0;
+            position: relative;
+            width: 100%;
+            margin: 22px 0;
+            display: flex;
+            align-items: center;
+        }
 
-    @keyframes fadeInDown {
-      from {
-        transform: translateY(-20px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
+        .input-box:nth-of-type(1) { animation-delay: 0.3s; }
+        .input-box:nth-of-type(2) { animation-delay: 0.5s; }
+        .input-box:nth-of-type(3) { animation-delay: 0.7s; }
+        .input-box:nth-of-type(4) { animation-delay: 0.9s; }
 
-    p {
-      font-size: 18px;
-      color: #333;
-      margin: 15px 0;
-      animation: fadeInUp 1.2s ease;
-    }
 
-    @keyframes fadeInUp {
-      from {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
+        .input-box input {
+            width: 100%;
+            padding: 12px 45px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.5);
+            color: black;
+            outline: none;
+            transition: 0.3s;
+        }
 
-    .btn-group {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 20px;
-      animation: fadeInButtons 1.4s ease;
-    }
+        .input-box input::placeholder {
+            color: rgba(0, 0, 0, 0.6);
+        }
 
-    @keyframes fadeInButtons {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        .input-box input:focus {
+            border-color: #333;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
 
-    .btn {
-      flex: 1;
-      padding: 12px;
-      border: none;
-      border-radius: 50px;
-      font-size: 1em;
-      font-weight: bold;
-      cursor: pointer;
-      color: white;
-      transition: transform 0.2s ease, background 0.3s ease;
-    }
+        .input-box label {
+            position: absolute;
+            top: 50%;
+            left: 45px;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: black;
+            pointer-events: none;
+            transition: 0.3s;
+        }
 
-    .back-btn {
-      background: linear-gradient(135deg, #8b0000, #b22222);
-    }
+        .input-box input:focus ~ label,
+        .input-box input:valid ~ label {
+            top: 8px;
+            left: 45px;
+            font-size: 12px;
+            color: #333;
+        }
 
-    .proceed-btn {
-      background: linear-gradient(135deg, #05190A, #044f10);
-    }
+        .input-box .icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: black;
+        }
 
-    .btn:hover {
-      transform: scale(1.05);
-    }
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 18px;
+            color: black;
+        }
 
-    .btn:active {
-      transform: scale(0.98);
-    }
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: black;
+            margin: 10px 0;
+            animation: fadeInDelayed 0.6s ease forwards;
+            opacity: 0;
+            animation-delay: 1.1s;
+        }
 
-    @media (max-width: 480px) {
-      .btn-group {
-        flex-direction: column;
-      }
-    }
-  </style>
+        .remember-forgot a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .remember-forgot a:hover {
+            text-decoration: underline;
+            color: #444;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            opacity: 1; 
+            animation-delay: 1.3s;
+            animation: fadeInDelayed 0.6s ease forwards;
+        }
+
+        .btn:hover {
+            background: #333;
+            transform: scale(1.05);
+            opacity: 1;
+        }
+
+        .login-register {
+            margin-top: 15px;
+            font-size: 14px;
+            color: black;
+            animation: fadeInDelayed 0.6s ease forwards;
+            opacity: 0;
+            animation-delay: 1.5s;
+        }
+
+        .login-register a {
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .login-register a:hover {
+            text-decoration: underline;
+            color: #444;
+        }
+
+        @media (max-width: 480px) {
+            .cover_box {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+        .go-home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: black;
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s ease;
+            z-index: 10;
+          }
+          
+          .go-home-btn:hover {
+            background-color: white;
+          }
+          
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Package Confirmed!</h1>
-    <p id="package-details">Loading...</p>
-    <div class="btn-group">
-      <button class="btn back-btn" onclick="goBack()">Go Back</button>
-      <button class="btn proceed-btn" onclick="nextStep()">Proceed</button>
+
+    <div class="cover_box">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-user"></i></span>
+                <input type="text" id="username" required>
+                <label>Username</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-envelope"></i></span>
+                <input type="email" id="email" required>
+                <label>Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-lock"></i></span>
+                <input type="password" id="createPassword" required>
+                <span class="toggle-password"><i class="fas fa-eye-slash"></i></span>
+                <label>Create Password</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-lock"></i></span>
+                <input type="password" id="confirmPassword" required>
+                <span class="toggle-password"><i class="fas fa-eye-slash"></i></span>
+                <label>Confirm Password</label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox" id="terms"> I agree to Terms & Conditions</label>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <div class="login-register">
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </form>
     </div>
-  </div>
+    <a href="index.html" class="go-home-btn">
+        <i class="fas fa-arrow-left"></i> Home
+      </a>
+      
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const selectedPackage = sessionStorage.getItem("selectedPackage");
-      const detailsElement = document.getElementById("package-details");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("registerForm");
+            const createPassword = document.getElementById("createPassword");
+            const confirmPassword = document.getElementById("confirmPassword");
+            const terms = document.getElementById("terms");
+            const passwordToggles = document.querySelectorAll(".toggle-password i");
+    
+            // Toggle Password Visibility
+            passwordToggles.forEach((toggle) => {
+                toggle.addEventListener("click", function () {
+                    let inputField = this.parentElement.previousElementSibling;
+                    if (inputField.type === "password") {
+                        inputField.type = "text";
+                        this.classList.replace("fa-eye-slash", "fa-eye");
+                    } else {
+                        inputField.type = "password";
+                        this.classList.replace("fa-eye", "fa-eye-slash");
+                    }
+                });
+            });
+    
+            // Handle Registration
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+    
+                let username = document.getElementById("username").value.trim();
+                let email = document.getElementById("email").value.trim();
+                let password = createPassword.value.trim();
+                let confirmPasswordVal = confirmPassword.value.trim();
+    
+                if (!username || !email || !password || !confirmPasswordVal) {
+                    alert("Please fill in all fields!");
+                    return;
+                }
+    
+                if (password !== confirmPasswordVal) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+    
+                if (!terms.checked) {
+                    alert("You must agree to the terms and conditions.");
+                    return;
+                }
+    
+                // Fetch existing users from localStorage
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+    
+                // Check if user already exists
+                if (users.some(user => user.email === email)) {
+                    alert("User already exists! Please login.");
+                    return;
+                }
+    
+                // Save the new user
+                let newUser = { username, email, password };
+                users.push(newUser);
+                localStorage.setItem("users", JSON.stringify(users));
+    
+                alert("Registration Successful!");
+                window.location.href = "login.html"; // Redirect to login page
+            });
+        });
+    </script>
+    
 
-      if (selectedPackage) {
-        detailsElement.textContent = `You have selected the ${selectedPackage.toUpperCase()} package.`;
-      } else {
-        detailsElement.textContent = "No package selected. Redirecting...";
-        setTimeout(() => window.location.href = "detail.html", 2000);
-      }
-    });
-
-    function goBack() {
-      window.location.href = "detail.html";
-    }
-
-    function nextStep() {
-      alert("Proceeding to the next step...");
-      window.location.href = "address.html";
-    }
-  </script>
 </body>
 </html>

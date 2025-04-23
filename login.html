@@ -351,32 +351,6 @@
             emailjs.init("hopefoundations25@gmail.com"); // Replace with your EmailJS Public Key
         });
         
-        function sendThankYouEmail() {
-            const email = localStorage.getItem("userEmail"); // Retrieve email from storage
-            const name = localStorage.getItem("userName") || "User";
-        
-            if (!email) {
-                alert("User email not found!");
-                return;
-            }
-        
-            let templateParams = {
-                to_email: email,
-                user_name: name
-            };
-        
-            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
-                .then(response => {
-                    console.log("Email sent successfully!", response.status, response.text);
-                    alert("Thank you email sent!");
-                })
-                .catch(error => {
-                    console.error("Email sending failed:", error);
-                    alert("Failed to send email.");
-                });
-        
-            window.location.href = "detail.html"; // Redirect after sending email
-        }
         
     </script>
     
